@@ -1,0 +1,284 @@
+/** Import inter font family **/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    list-style: none;
+    color: var(--set-color-font-a);
+}
+
+/***** Root variable set *****/ 
+:root{
+
+    --set-color-font-a: #444444;
+    --set-color-font-b: #ffffff;
+    --set-color-font-c: #ffffff;
+    --set-color-font-d: #ffffff;
+
+    --padding-a: 10px;
+    --padding-b: 35px;
+
+    --gap-a: 25px;
+
+}
+/***** End Root variable set *****/
+
+#authContainer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--padding-b);
+
+    & #loginForm{
+        width: 360px;
+        display: flex;
+        flex-direction: column;
+        gap: var(--gap-a);
+        padding: var(--padding-a);
+
+        & .auth-header{
+            width: 100%;
+            justify-content: center;
+            text-align: center;
+
+            & .logo-cont{
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                margin-bottom: 25px;
+
+                & img{
+                    width: 60px;
+                    height: 60px;
+                    border-radius: 50px;
+                    background-color: #eeeeee;
+                    border: 1px solid #ccc;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    #authContainer{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: unset;
+    }
+}
+
+/***** Shared css *****/
+#ORLine{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+
+    & hr{
+        width: 100%;
+        color: #eeeeee;
+        opacity: .5;
+    }
+}
+
+#authWhithCont{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+
+    & button{
+        width: 100%;
+        border: none;
+        padding: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        gap: 10px;
+    }
+}
+
+.form-step{
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    gap: 15px;
+    & .form-input-cont{
+        display: flex;
+        flex-direction: column;
+        position: relative;
+
+        & input{
+            width: 100%;
+            padding: 10px 5px;
+            font-size: 14px;
+        }
+
+        & button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        & .show-pwd-btn{
+            padding: 3px 5px;
+            right: 10px;
+            top: 28px;
+            position: absolute;
+            border: none;
+            outline: none;
+            background: none;
+            cursor: pointer;
+            & i{
+                font-size: 16px;
+            }
+        }
+
+        & .rememberacc-forgetpwd-cont{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            & .remember-acc-cont{
+                display: flex;
+                justify-content: start;
+                align-items: center;
+                gap: 5px;
+
+                & input{
+                    width: unset;
+                }
+            }
+        }
+    }
+}
+#formInputCont{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    & .form-input-cont{
+        display: flex;
+        flex-direction: column;
+        position: relative;
+
+        & input{
+            width: 100%;
+            padding: 10px 5px;
+            font-size: 14px;
+        }
+
+        & button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        & .show-pwd-btn{
+            padding: 3px 5px;
+            right: 10px;
+            top: 28px;
+            position: absolute;
+            border: none;
+            outline: none;
+            background: none;
+            cursor: pointer;
+            & i{
+                font-size: 16px;
+            }
+        }
+
+        & .rememberacc-forgetpwd-cont{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            & .remember-acc-cont{
+                display: flex;
+                justify-content: start;
+                align-items: center;
+                gap: 5px;
+
+                & input{
+                    width: unset;
+                }
+            }
+        }
+    }
+}
+
+.form-step.active {
+    display: flex;
+}
+
+.auth-button{
+    width: 100%;
+    padding: 10px 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+/***** End Shared css *****/
+
+/* Contenedor de progreso */
+.progress-container {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+  }
+  
+  .progress-step {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #ccc;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: bold;
+    position: relative;
+  }
+  
+  .progress-step.active {
+    background-color: #007bff;
+  }
+  
+  .progress-step::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    border: 2px solid #007bff;
+    border-radius: 50%;
+    z-index: -1;
+  }
+  
+  .progress-container::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    right: 15px;
+    height: 4px;
+    background-color: #ccc;
+    z-index: -5;
+  }
+  
+  .progress-step.active ~ .progress-step::before {
+    border-color: #ccc;
+  }
+  
