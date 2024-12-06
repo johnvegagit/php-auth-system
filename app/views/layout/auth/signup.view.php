@@ -1,98 +1,99 @@
-<main id="authContainer">
-    <form id="loginForm">
+<?php if (isset($_SESSION['customerId'])): ?>
+    <script type="text/javascript">
+        window.location.href = "<?= $_ENV['BASEURL'] ?>";
+    </script>
+    <?php die(); ?>
+<?php else: ?>
+    <main id="authContainer">
 
-        <div class="auth-header">
-            <div class="logo-cont"><img src="" alt=""></div>
-            <h2>Create new account</h2>
-            <span>Start your 30-day free. Cancel anytime.</span>
-        </div>
+        <form id="signupForm" class="auth-form-container">
 
-        <div id="authWhithCont">
-            <button type="button">
-                <img width="30" height="30" src="https://img.icons8.com/color/48/google-logo.png" alt="google-logo" />
-                Signup with Google</button>
-            <button type="button">
-                <img width="30" height="30" src="https://img.icons8.com/color/48/microsoft.png" alt="microsoft" />
-                Signup with Microsoft</button>
-        </div>
-
-        <div id="ORLine">
-            <hr> or
-            <hr>
-        </div>
-
-        <div class="progress-container">
-            <div class="progress-step active">1</div>
-            <div class="progress-step">2</div>
-            <div class="progress-step">3</div>
-            <div class="progress-step">4</div>
-        </div>
-
-        <!-- form-step 1 -->
-        <div class="form-step active">
-            <div class="form-input-cont">
-                <label for="email">Email</label>
-                <input class="FORM-INPUT-email" required type="mail" placeholder="Email" minlength="10"
-                    autocomplete="off">
-                <div id="INPUT-msg--mail" class="input-msg-cont"></div>
+            <div class="auth-header">
+                <div class="logo-cont"><img src="" alt=""></div>
+                <h2>Create an account</h2>
+                <span>Lorem ipsum dolor sit, consectetur elit.</span>
             </div>
-            <button type="button" class="auth-button next-btn">Continue --></button>
-        </div>
 
-        <!-- form-step 2 -->
-        <div class="form-step">
-            <div class="form-input-cont">
-                <label for="name">Name</label>
-                <input class="FORM-INPUT-name" required type="text" placeholder="Name" minlength="3" autocomplete="off">
-                <div id="INPUT-msg--name" class="input-msg-cont"></div>
+            <div id="authWhithCont">
+                <button type="button">
+                    <img width="30" height="30" src="https://img.icons8.com/color/48/google-logo.png" alt="google-logo" />
+                    Signup with Google</button>
+                <button type="button">
+                    <img width="30" height="30" src="https://img.icons8.com/color/48/microsoft.png" alt="microsoft" />
+                    Signup with Microsoft</button>
             </div>
-            <div class="form-input-cont">
-                <label for="surname">SurName</label>
-                <input class="FORM-INPUT-surname" required type="text" placeholder="SurName" minlength="3"
-                    autocomplete="off">
-                <div id="INPUT-msg--surname" class="input-msg-cont"></div>
-            </div>
-            <button type="button" class="auth-button next-btn">Continue --></button>
-        </div>
 
-        <!-- form-step 3 -->
-        <div class="form-step">
-            <div class="form-input-cont">
-                <label for="username">UserName</label>
-                <input class="FORM-INPUT-username" required type="text" placeholder="Username" minlength="10"
-                    autocomplete="off">
-                <div id="INPUT-msg--username" class="input-msg-cont"></div>
+            <div id="ORLine">
+                <hr> or
+                <hr>
             </div>
-            <button type="button" class="auth-button next-btn">Continue --></button>
-        </div>
 
-        <!-- form-step 4 -->
-        <div class="form-step">
+            <!-- name surname -->
+            <div class="form-input-names-cont">
+                <div class="form-input-cont">
+                    <label for="name">name</label>
+                    <input value="john" class="FORM-INPUT-name" required type="text" placeholder="Name" minlength="3"
+                        autocomplete="off">
+                    <div id="inputMsg--name" class="input-msg-cont"></div>
+                </div>
+                <div class="form-input-cont">
+                    <label for="surname">surname</label>
+                    <input value="doe" class="FORM-INPUT-surname" required type="text" placeholder="Surname" minlength="3"
+                        autocomplete="off">
+                    <div id="inputMsg--surname" class="input-msg-cont"></div>
+                </div>
+            </div>
+
+            <!-- username -->
             <div class="form-input-cont">
-                <label for="password">Password</label>
-                <input class="FORM-INPUT-pwd auth-input-pwd" required type="password" placeholder="Password">
+                <label for="username">username</label>
+                <input value="johndoe123" class="FORM-INPUT-username" required type="text" placeholder="Username"
+                    minlength="10" autocomplete="off">
+                <div id="inputMsg--username" class="input-msg-cont"></div>
+            </div>
+
+            <!-- email -->
+            <div class="form-input-cont">
+                <label for="email">email</label>
+                <input value="johnvegagalaxya04e@gmail.com" class="FORM-INPUT-email" required type="mail"
+                    placeholder="Email" minlength="10" autocomplete="off">
+                <div id="inputMsg--email" class="input-msg-cont"></div>
+            </div>
+
+            <!-- password -->
+            <div class="form-input-cont">
+                <label for="password">password</label>
                 <button type="button" class="show-pwd-btn">
                     <i title="show password" class="bi bi-eye"></i>
                 </button>
-                <div id="INPUT-msg--pwd" class="input-msg-cont"></div>
+                <input value="Yv-,X;Ws?N>gm95" class="FORM-INPUT-pwd auth-input-pwd" required type="password"
+                    placeholder="Password">
+                <div id="inputMsg--pwd" class="input-msg-cont"></div>
             </div>
 
+            <!-- confirm password -->
             <div class="form-input-cont">
-                <label for="confirmpassword">Confirm password</label>
-                <input class="FORM-INPUT-confrpwd auth-input-pwd" required type="password"
+                <label for="confirmpassword">confirm password</label>
+                <button type="button" class="show-pwd-btn">
+                    <i title="show password" class="bi bi-eye"></i>
+                </button>
+                <input value="Yv-,X;Ws?N>gm95" class="FORM-INPUT-confrpwd auth-input-pwd" required type="password"
                     placeholder="Confirm password">
-                <button type="button" class="show-pwd-btn">
-                    <i title="show password" class="bi bi-eye"></i>
-                </button>
-                <div id="INPUT-msg--pwd" class="input-msg-cont"></div>
+                <div id="inputMsg--cnfrpwd" class="input-msg-cont"></div>
             </div>
+            <br><br>
+            <button type="button" id="singupData" class="auth-button">Create account</button>
 
-            <button type="button" id="sendSignupData" class="auth-button next-btn">Create Account</button>
-        </div>
+            <span id="userConsent">By selecting Create account, you agree to our
+                <a href="#" target="_blank" rel="noopener noreferrer">Terms of Service</a>
+                and acknowledge that you have read our
+                <a href="#" target="_blank" rel="noopener noreferrer">Privacy Policy</a>.</span>
 
-        <span class="auth-link">Already have an account?
-            <a href="login">Login</a>
-        </span>
-    </form>
+            <span class="auth-link">You have an account?
+                <a href="login">Login</a>
+            </span>
 
-</main>
+        </form>
+
+    </main>
+<?php endif;

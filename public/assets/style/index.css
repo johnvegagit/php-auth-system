@@ -10,6 +10,10 @@
     color: var(--set-color-font-a);
 }
 
+label{
+    font-size: 14px;
+}
+
 /***** Root variable set *****/ 
 :root{
 
@@ -21,24 +25,24 @@
     --padding-a: 10px;
     --padding-b: 35px;
 
-    --gap-a: 25px;
+    --gap-a: 10px;
 
 }
 /***** End Root variable set *****/
 
+/***** Form css *****/
 #authContainer{
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: var(--padding-b);
+    padding: 20px;
 
-    & #loginForm{
+    & .auth-form-container{
         width: 360px;
         display: flex;
         flex-direction: column;
         gap: var(--gap-a);
-        padding: var(--padding-a);
 
         & .auth-header{
             width: 100%;
@@ -49,7 +53,7 @@
                 width: 100%;
                 display: flex;
                 justify-content: center;
-                margin-bottom: 25px;
+                margin-bottom: 20px;
 
                 & img{
                     width: 60px;
@@ -61,6 +65,61 @@
                 }
             }
         }
+
+        & .form-input-names-cont{
+            display: flex;
+            grid-template-columns: auto auto;
+            gap: var(--gap-a);
+
+            & input{
+                width: 100%;
+                padding: 10px 5px;
+                font-size: 14px;
+            }
+
+        }
+
+        & .form-input-cont{
+            display: flex;
+            flex-direction: column;
+            position: relative;
+
+            & input{
+                width: 100%;
+                padding: 10px 8px;
+                font-size: 14px;
+            }
+
+            & .show-pwd-btn{
+                padding: 3px 5px;
+                right: 10px;
+                top: 25px;
+                position: absolute;
+                border: none;
+                outline: none;
+                background: none;
+                cursor: pointer;
+                & i{
+                    font-size: 16px;
+                }
+            }
+        }
+
+        & #userConsent{
+            font-size: 13px;
+            color: #888888;
+            & a{
+                font-size: 13px;
+                color: #888888;
+            }
+        }
+
+        & .auth-button{
+            width: 100%;
+            padding: 10px 8px;
+            cursor: pointer;
+            font-size: 14px;
+        }
     }
 }
 
@@ -70,9 +129,10 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: unset;
+        padding: 10px;
     }
 }
+/***** End Form css *****/
 
 /***** Shared css *****/
 #ORLine{
@@ -104,181 +164,142 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        border-radius: 4px;
         cursor: pointer;
         gap: 10px;
     }
 }
 
-.form-step{
-    width: 100%;
-    display: none;
-    flex-direction: column;
-    gap: 15px;
-    & .form-input-cont{
-        display: flex;
-        flex-direction: column;
-        position: relative;
-
-        & input{
-            width: 100%;
-            padding: 10px 5px;
-            font-size: 14px;
-        }
-
-        & button:disabled {
-            background-color: #ccc;
-            cursor: not-allowed;
-        }
-
-        & .show-pwd-btn{
-            padding: 3px 5px;
-            right: 10px;
-            top: 28px;
-            position: absolute;
-            border: none;
-            outline: none;
-            background: none;
-            cursor: pointer;
-            & i{
-                font-size: 16px;
-            }
-        }
-
-        & .rememberacc-forgetpwd-cont{
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-
-            & .remember-acc-cont{
-                display: flex;
-                justify-content: start;
-                align-items: center;
-                gap: 5px;
-
-                & input{
-                    width: unset;
-                }
-            }
-        }
+.auth-input-msg-err{
+    font-size: 13px;
+    color: #ff0000;
+    & i{
+        font-size: 13px;
+        color: #ff0000;
     }
-}
-#formInputCont{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-
-    & .form-input-cont{
-        display: flex;
-        flex-direction: column;
-        position: relative;
-
-        & input{
-            width: 100%;
-            padding: 10px 5px;
-            font-size: 14px;
-        }
-
-        & button:disabled {
-            background-color: #ccc;
-            cursor: not-allowed;
-        }
-
-        & .show-pwd-btn{
-            padding: 3px 5px;
-            right: 10px;
-            top: 28px;
-            position: absolute;
-            border: none;
-            outline: none;
-            background: none;
-            cursor: pointer;
-            & i{
-                font-size: 16px;
-            }
-        }
-
-        & .rememberacc-forgetpwd-cont{
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-
-            & .remember-acc-cont{
-                display: flex;
-                justify-content: start;
-                align-items: center;
-                gap: 5px;
-
-                & input{
-                    width: unset;
-                }
-            }
-        }
-    }
-}
-
-.form-step.active {
-    display: flex;
-}
-
-.auth-button{
-    width: 100%;
-    padding: 10px 5px;
-    cursor: pointer;
-    font-size: 14px;
 }
 /***** End Shared css *****/
 
-/* Contenedor de progreso */
-.progress-container {
-    display: flex;
-    justify-content: space-between;
-    position: relative;
-  }
-  
-  .progress-step {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background-color: #ccc;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 14px;
-    font-weight: bold;
-    position: relative;
-  }
-  
-  .progress-step.active {
-    background-color: #007bff;
-  }
-  
-  .progress-step::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+/***** COMPONENT MODAL MESSAGE *****/
+#modalMessageContainer{
     width: 100%;
-    height: 100%;
-    border: 2px solid #007bff;
-    border-radius: 50%;
-    z-index: -1;
-  }
-  
-  .progress-container::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 15px;
-    right: 15px;
-    height: 4px;
-    background-color: #ccc;
-    z-index: -5;
-  }
-  
-  .progress-step.active ~ .progress-step::before {
-    border-color: #ccc;
-  }
-  
+    height: 100vh;
+    background-color: var(--modal-bck-color);
+    position: fixed;
+    top: 0;
+    left: 0;
+    backdrop-filter: blur(.9px);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 100;
+    padding: 10px;
+
+    & .--modal-error-msg{
+        width: 340px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: end;
+        gap: 15px;
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 3px 10px 8px #00000007;
+        padding: 15px;
+
+        & span{
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+            gap: 5px;
+            font-size: 20px;
+            color: #ff0000;
+            font-weight: 500;
+            & i{ font-size: 20px; color:  #ff0000; }
+        }
+
+        & button{
+            padding: 7px 35px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+    }
+
+    & .--modal-scss-msg{
+        width: 340px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: end;
+        gap: 15px;
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 3px 10px 8px #00000007;
+        padding: 15px;
+
+        & span{
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+            gap: 5px;
+            font-size: 20px;
+            color: #10b65e;
+            font-weight: 500;
+            & i{ font-size: 20px; color: #10b65e; }
+        }
+
+        & button{
+            padding: 7px 35px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+    }
+}
+/*****  COMPONENT MODAL MESSAGE *****/
+
+/** show me **/
+& #HTMLModal-email-send{
+    max-width: 380px;
+    min-width: 340px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    box-shadow: 0 0 15px 7px #00000007;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    text-align: center;
+
+    & img{width: 50px;}
+
+    & .mailPng{
+        width: 100px !important;
+    }
+
+    & h2{
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    & strong{
+        font-weight: 500;
+        color: #187cff;
+    }
+
+    & span{
+        display: block;
+        padding: 10px 10px 0 10px;
+        border-top: 1px dotted #888888;
+        color: #888888;
+        font-size: 15px;
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    & #HTMLModal-email-send{
+        box-shadow: unset;
+    }
+}
