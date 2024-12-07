@@ -6,15 +6,19 @@ if (signupForm != null) {
     signupForm.addEventListener('click', (e)=>{
         if (e.target.id === 'singupData' && e.target.tagName === 'BUTTON') {
             e.preventDefault();
+
             signupbtn.disabled = true;
             signupbtn.innerHTML = 'Loading... <i class="fa fa-circle-o-notch fa-spin"></i>';
             signupbtn.style.cursor = 'not-allowed';
+
             const formElement = e.target.closest('form');
+
             if (formElement) {
                 sendSignupDataFunc(formElement);
             }else{
+                
                 signupbtn.disabled = false;
-                signupbtn.innerHTML = 'Create Account err';
+                signupbtn.innerHTML = 'Create Account';
                 signupbtn.style.cursor = 'pointer';
             }
         }
@@ -54,7 +58,7 @@ function sendSignupDataFunc(formElement) {
                 
                 // Reset button to default.
                 signupbtn.disabled = false;
-                signupbtn.innerHTML = 'Create Account false';
+                signupbtn.innerHTML = 'Create Account';
                 signupbtn.style.cursor = 'pointer';
 
                 if (response.errors) {
@@ -64,6 +68,7 @@ function sendSignupDataFunc(formElement) {
                         if (errorMsgElement) {
                             errorMsgElement.innerHTML = response.errors[field];
                             const inputErr = errorMsgElement.previousElementSibling;
+
                             inputErr.style.border = '2px solid #ff0000';
                             inputErr.style.outline = '3px solid #ff000015';
                             inputErr.style.borderRadius = '5px';
@@ -78,7 +83,7 @@ function sendSignupDataFunc(formElement) {
             } else {
 
                 signupbtn.disabled = false;
-                signupbtn.innerHTML = 'Create Account true';
+                signupbtn.innerHTML = 'Create Account';
                 signupbtn.style.cursor = 'pointer';
 
                 if (response.HTMLModal) {

@@ -30,6 +30,24 @@ label{
 }
 /***** End Root variable set *****/
 
+/** Home page style */
+#homePageStyle{
+    & h1{
+        text-align: center;
+        font-size: 25px;
+        font-weight: 500;
+        padding: 15px;
+    }
+    
+    & ul{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }
+}
+/** Home page style */
+
 /***** Form css *****/
 #authContainer{
     width: 100%;
@@ -82,6 +100,7 @@ label{
         & .form-input-cont{
             display: flex;
             flex-direction: column;
+            gap: 3px;
             position: relative;
 
             & input{
@@ -93,7 +112,7 @@ label{
             & .show-pwd-btn{
                 padding: 3px 5px;
                 right: 10px;
-                top: 25px;
+                top: 28px;
                 position: absolute;
                 border: none;
                 outline: none;
@@ -177,6 +196,26 @@ label{
         font-size: 13px;
         color: #ff0000;
     }
+}
+
+.share-linkto{
+    &:hover{
+        color: #187cff;
+    }
+}
+
+.shared-header-login-msg{
+    text-align: center;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 5px;
+    background-color: #10b65e15;
+    color: #10b65e;
+}
+
+.shared-header-login-msg-err{
+    background-color: #ff000015;
+    color: #ff0000;
 }
 /***** End Shared css *****/
 
@@ -267,7 +306,7 @@ label{
     justify-content: center;
     align-items: center;
     gap: 15px;
-    padding: 15px;
+    padding: 25px;
     box-shadow: 0 0 15px 7px #00000007;
     border-radius: 10px;
     background-color: #FFFFFF;
@@ -279,9 +318,33 @@ label{
         width: 100px !important;
     }
 
+    & .HTMLModal-icon{
+        width: 100%;
+        justify-content: center;
+
+        & i{
+            font-size: 35px;
+        }
+
+        & .bi-envelope-fill{
+            color: #187cff;
+        }
+
+        & .bi-exclamation-triangle-fill{
+            color: #ff0000;
+        }
+    }
+
     & h2{
         font-size: 20px;
         font-weight: 600;
+    }
+
+    & .HTMLModal-linkto{
+        font-weight: 500;
+        &:hover{
+            color: #187cff;
+        }
     }
 
     & strong{
@@ -290,6 +353,7 @@ label{
     }
 
     & span{
+        min-width: 320px;
         display: block;
         padding: 10px 10px 0 10px;
         border-top: 1px dotted #888888;

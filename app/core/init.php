@@ -17,7 +17,7 @@ spl_autoload_register(function ($classname) {
 });
 
 
-// require 'session.php';
+require 'session.php';
 require 'function.php';
 require 'config.php';
 require 'Database.php';

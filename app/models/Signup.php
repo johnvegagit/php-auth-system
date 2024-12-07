@@ -47,6 +47,50 @@ class Signup
         return $result;
     }
 
+    public function get_hashedPwd($email)
+    {
+        $pdo = $this->get_connection();
+        $query = "SELECT password FROM $this->table WHERE email = :email";
+        $stmt = $pdo->prepare($query);
+        $stmt->bindParam(':email', $email);
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_OBJ);
+        return $result;
+    }
+
+    public function user_verification_code_are_empty($email)
+    {
+        $pdo = $this->get_connection();
+        $query = "SELECT auth_code FROM $this->table WHERE email = :email";
+        $stmt = $pdo->prepare($query);
+        $stmt->bindParam(':email', $email);
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_OBJ);
+        return $result;
+    }
+
+    public function user_verification_account_are_banned($email)
+    {
+        $pdo = $this->get_connection();
+        $query = "SELECT status FROM $this->table WHERE email = :email";
+        $stmt = $pdo->prepare($query);
+        $stmt->bindParam(':email', $email);
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_OBJ);
+        return $result;
+    }
+
+    public function get_user_data_from_db($email)
+    {
+        $pdo = $this->get_connection();
+        $query = "SELECT * FROM $this->table WHERE email = :email";
+        $stmt = $pdo->prepare($query);
+        $stmt->bindParam(":email", $email);
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_OBJ);
+        return $result;
+    }
+
     // This is specific for when a customer creates an account.
     // If any error occurs, this will delete the customer account that was inserted.
     public function deleteUserById($id)
