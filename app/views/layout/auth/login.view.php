@@ -52,6 +52,11 @@
             <br><br>
             <button type="button" id="loginData" class="auth-button">Login</button>
 
+            <div id="ORLine">
+                <hr> or
+                <hr>
+            </div>
+
             <span class="auth-link">Don't have an account?
                 <a class="share-linkto" href="<?= $_ENV['BASEURL'] ?>signup">Signup</a>
             </span>

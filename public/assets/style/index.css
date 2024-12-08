@@ -119,12 +119,21 @@ label{
             }
         }
 
-        & #userConsent{
-            font-size: 13px;
-            color: #888888;
-            & a{
+        & #userConsentCont{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: start;
+
+            & .user-consent{
+                max-width: 300px;
+                text-align: center;
                 font-size: 13px;
                 color: #888888;
+                & a{
+                    font-size: 13px;
+                    color: #888888;
+                }
             }
         }
 
@@ -202,7 +211,7 @@ label{
 
 .share-linkto{
     &:hover{
-        color: #187cff;
+        color: #187cff !important;
     }
 }
 

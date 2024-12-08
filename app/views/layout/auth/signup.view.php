@@ -80,13 +80,20 @@
             <br><br>
             <button type="button" id="singupData" class="auth-button">Create account</button>
 
-            <span id="userConsent">By selecting Create account, you agree to our
-                <a href="#" target="_blank" rel="noopener noreferrer">Terms of Service</a>
-                and acknowledge that you have read our
-                <a href="#" target="_blank" rel="noopener noreferrer">Privacy Policy</a>.</span>
+            <div id="userConsentCont">
+                <span class="user-consent">By selecting Create account, you agree to our
+                    <a class="share-linkto" href="#" target="_blank" rel="noopener noreferrer">Terms of Service</a>
+                    and acknowledge that you have read our
+                    <a class="share-linkto" href="#" target="_blank" rel="noopener noreferrer">Privacy Policy</a>.</span>
+            </div>
+
+            <div id="ORLine">
+                <hr> or
+                <hr>
+            </div>
 
             <span class="auth-link">You have an account?
-                <a href="login">Login</a>
+                <a class="share-linkto" href="login">Login</a>
             </span>
 
         </form>

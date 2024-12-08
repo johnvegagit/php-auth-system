@@ -44,6 +44,25 @@ class SignupController
             return false;
         }
 
+        // Function to generate a random string
+        function generateRandomString($length = 5)
+        {
+            return substr(str_shuffle("abcdefghijkmnpqrstuvwxyz23456789"), 0, $length);
+        }
+
+        // Function to create a unique username
+        function generateUniqueUsername($name, $surname)
+        {
+            // Combine first name and last name to form the initial username
+            $username = strtolower($name . $surname);
+            // Check if the username already exists in the database
+            while (is_username_taken($username)) {
+                // If it exists, append a random string and check again
+                $username = strtolower($name . $surname) . generateRandomString();
+            }
+            return $username;
+        }
+
         function validate_email($email)
         {
             return filter_var($email, FILTER_VALIDATE_EMAIL);
@@ -109,8 +128,8 @@ class SignupController
             $errors['surname'] = '<span class="auth-input-msg-err"><i class="bi bi-exclamation-triangle-fill"></i> Invalid characters detected.</span>';
         }
 
-        if (validate_empty($username)) {
-            $errors['username'] = '<span class="auth-input-msg-err"><i class="bi bi-exclamation-triangle-fill"></i> Please enter a username.</span>';
+        if (empty($username)) {
+            $new_username = generateUniqueUsername($name, $surname);
         } elseif (!validate_username_char($username)) {
             $errors['username'] = '<span class="auth-input-msg-err"><i class="bi bi-exclamation-triangle-fill"></i> Invalid characters detected.</span>';
         } elseif (is_username_taken($username)) {
@@ -159,6 +178,8 @@ class SignupController
         $unique_string = $email . time() . bin2hex(random_bytes(8));
         // Hash the unique string using SHA-256 for added security.
         $verification_code = hash('sha256', $unique_string);
+
+        $username = (!empty($username)) ? $username : $new_username;
 
         $data = [
             'name' => $name,
@@ -211,7 +232,8 @@ class SignupController
             if ($dataInsert) {
 
                 // Send a email with a link to customers.
-                $mail->send();
+                // $mail->send();
+                $mail = true;
 
                 if ($mail) {
                     $HTMLModal = '
