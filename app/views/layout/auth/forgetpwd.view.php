@@ -1,31 +1,43 @@
-<main id="authContainer">
-    <form id="loginForm">
+<?php if (isset($_SESSION['customerId'])): ?>
+    <script type="text/javascript">
+        window.location.href = "<?= $_ENV['BASEURL'] ?>";
+    </script>
+    <?php die(); ?>
+<?php else: ?>
+    <main id="authContainer">
 
-        <div class="auth-header">
-            <div class="logo-cont"><img src="" alt=""></div>
-            <h2>Forget your password?</h2>
-            <span>Please entre your Email to recieve a link to reset your password.</span>
-        </div>
+        <form id="forgetpwdForm" class="auth-form-container">
 
-        <div id="formInputCont">
-            <div class="form-input-cont">
-                <label for="email">Email</label>
-                <input class="FORM-INPUT-email" required type="mail" placeholder="Email" minlength="10"
-                    autocomplete="off">
-                <div id="INPUT-msg--mail" class="input-msg-cont"></div>
+            <div class="auth-header">
+                <div class="logo-cont"><img src="" alt=""></div>
+                <h2>Forget your password?</h2>
+                <span>Please entre your Email to recieve a link to reset your password.</span>
             </div>
-        </div>
 
-        <button type="button" id="sendLinkData" class="auth-button">Send Link</button>
+            <!-- email -->
+            <div class="form-input-cont">
+                <label for="email">email</label>
+                <input value="johnvegagalaxya04e@gmail.com" class="FORM-INPUT-email" required type="mail"
+                    placeholder="Email" minlength="10" autocomplete="off">
+                <div id="inputMsg--email" class="input-msg-cont"></div>
+            </div>
 
-        <div class="auth-link-cont">
-            <span class="auth-link">Remember your credencial just!
-                <a href="login">Login</a>
-            </span> <br>
-            <span class="auth-link">Or create a new account!
-                <a href="signup">Signup</a>
-            </span>
-        </div>
-    </form>
+            <button type="button" id="forgetpwdData" class="auth-button">Send Link</button>
 
-</main>
+            <div id="ORLine">
+                <hr> or
+                <hr>
+            </div>
+
+            <div class="auth-link-cont">
+                <span class="auth-link">Remember your account just?
+                    <a class="share-linkto" href="login">Login</a>
+                </span>
+                <span class="auth-link">Create a new account!
+                    <a class="share-linkto" href="signup">Signup</a>
+                </span>
+            </div>
+        </form>
+
+    </main>
+<?php endif;

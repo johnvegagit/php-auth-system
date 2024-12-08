@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="<?= $_ENV['BASEURL'] ?>public/assets/style/index.css">
     <script src="<?= $_ENV['BASEURL'] ?>public/assets/script/signup.js" defer></script>
     <script src="<?= $_ENV['BASEURL'] ?>public/assets/script/login.js" defer></script>
+    <script src="<?= $_ENV['BASEURL'] ?>public/assets/script/forgetpwd.js" defer></script>
+    <script src="<?= $_ENV['BASEURL'] ?>public/assets/script/resetpwd.js" defer></script>
     <script src="<?= $_ENV['BASEURL'] ?>public/assets/script/index.js" defer></script>
     <title>
         <?= $data['title'] ?>
