@@ -17,8 +17,7 @@
             <!-- email -->
             <div class="form-input-cont">
                 <label for="email">email</label>
-                <input value="johnvegagalaxya04e@gmail.com" class="FORM-INPUT-email" required type="mail"
-                    placeholder="Email" minlength="10" autocomplete="off">
+                <input class="FORM-INPUT-email" required type="mail" placeholder="Email" minlength="10" autocomplete="off">
                 <div id="inputMsg--email" class="input-msg-cont"></div>
             </div>
 

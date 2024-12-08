@@ -24,23 +24,23 @@ class Forgetpwd
         return $result;
     }
 
-    public function update_customer_auth_code($email, $auth_code)
+    public function update_customer_password_reset_code($email, $password_reset_code)
     {
         $pdo = $this->get_connection();
-        $query = "UPDATE $this->table SET auth_code = :auth_code WHERE email = :email";
+        $query = "UPDATE $this->table SET password_reset_code = :password_reset_code WHERE email = :email";
         $stmt = $pdo->prepare($query);
         $stmt->bindParam(":email", $email);
-        $stmt->bindParam(":auth_code", $auth_code);
+        $stmt->bindParam(":password_reset_code", $password_reset_code);
         if ($stmt->execute()) {
             return true;
         }
         return false;
     }
 
-    public function clear_customer_auth_code($email)
+    public function clear_customer_password_reset_code($email)
     {
         $pdo = $this->get_connection();
-        $query = "UPDATE $this->table SET auth_code = '' WHERE email = :email";
+        $query = "UPDATE $this->table SET password_reset_code = '' WHERE email = :email";
         $stmt = $pdo->prepare($query);
         $stmt->bindParam(":email", $email);
         $stmt->execute();

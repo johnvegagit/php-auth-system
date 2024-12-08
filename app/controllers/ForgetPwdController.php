@@ -74,7 +74,7 @@ class ForgetPwdController
         // Combine the user's email, current timestamp, and a random value to generate a unique string.
         $unique_string = $email . time() . bin2hex(random_bytes(8));
         // Hash the unique string using SHA-256 for added security.
-        $auth_code = hash('sha256', $unique_string);
+        $password_reset_code = hash('sha256', $unique_string);
 
         try {
             // Autoload for Dotenv.
@@ -106,11 +106,11 @@ class ForgetPwdController
             // Content.
             $mail->isHTML(true); // Set email format to HTML
             $mail->Subject = 'no reply';
-            $mail->Body = 'Hello! To reset your password, please click the following link: <b><a href="' . $_ENV['BASEURL'] . 'resetpwd/?token=' . $auth_code . '">Reset my password</a></b>. If you didn’t request this change, please ignore this message. Thank you for trusting us!';
+            $mail->Body = 'Hello! To reset your password, please click the following link: <b><a href="' . $_ENV['BASEURL'] . 'resetpwd/?auth=' . $password_reset_code . '">Reset my password</a></b>. If you didn’t request this change, please ignore this message. Thank you for trusting us!';
 
             // Update customers aunt code.
             $customer = new customer_forgetpwd;
-            $dataInsert = $customer->update_customer_auth_code($email, $auth_code);
+            $dataInsert = $customer->update_customer_password_reset_code($email, $password_reset_code);
 
             if ($dataInsert) {
 
@@ -152,7 +152,7 @@ class ForgetPwdController
         } catch (Exception $e) {
 
             // If email not send clear customer auth code.
-            $customer->clear_customer_auth_code($email);
+            $customer->clear_customer_password_reset_code($email);
 
             echo json_encode([
                 'success' => false,
@@ -169,14 +169,14 @@ class ForgetPwdController
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Recopilar y sanitizar los datos.
-    $user_email = isset($_POST['email']) ? trim($_POST['email']) : '';
+    $email = isset($_POST['email']) ? trim($_POST['email']) : '';
     $action = isset($_POST['action']) ? trim($_POST['action']) : '';
 
     $valcustomer = new ForgetPwdController;
 
     switch ($action) {
         case 'forgetpwdData':
-            $valcustomer->forgetpwdCustomer($user_email);
+            $valcustomer->forgetpwdCustomer($email);
             break;
         default:
 

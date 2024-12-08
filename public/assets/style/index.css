@@ -16,12 +16,7 @@ label{
 
 /***** Root variable set *****/ 
 :root{
-
     --set-color-font-a: #444444;
-    --set-color-font-b: #ffffff;
-    --set-color-font-c: #ffffff;
-    --set-color-font-d: #ffffff;
-
     --padding-a: 10px;
     --padding-b: 35px;
 
@@ -339,6 +334,10 @@ label{
 
         & .bi-exclamation-triangle-fill{
             color: #ff0000;
+        }
+
+        & .bi-check-circle-fill{
+            color: #10b65e;
         }
     }
 
