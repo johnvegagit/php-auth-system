@@ -1,4 +1,4 @@
-<?php if (isset($_SESSION['customerId'])): ?>
+<?php if (isset($_SESSION['customerId']) && isset($_SESSION['customerToken'])): ?>
     <script type="text/javascript">
         window.location.href = "<?= $_ENV['BASEURL'] ?>";
     </script>
@@ -31,8 +31,7 @@
             <!-- email -->
             <div class="form-input-cont">
                 <label for="email">email</label>
-                <input value="johnvegagalaxya04e@gmail.com" class="FORM-INPUT-email" required type="mail"
-                    placeholder="Email" minlength="10" autocomplete="off">
+                <input class="FORM-INPUT-email" required type="mail" placeholder="Email" minlength="10" autocomplete="off">
                 <div id="inputMsg--email" class="input-msg-cont"></div>
             </div>
 
@@ -42,8 +41,7 @@
                 <button type="button" class="show-pwd-btn">
                     <i title="show password" class="bi bi-eye"></i>
                 </button>
-                <input value="Yv-,X;Ws?N>gm95" class="FORM-INPUT-pwd auth-input-pwd" required type="password"
-                    placeholder="Password">
+                <input class="FORM-INPUT-pwd auth-input-pwd" required type="password" placeholder="Password">
                 <div id="inputMsg--pwd" class="input-msg-cont"></div>
             </div>
 

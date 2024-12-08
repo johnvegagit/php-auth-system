@@ -82,10 +82,6 @@ function sendSignupDataFunc(formElement) {
                 }
             } else {
 
-                signupbtn.disabled = false;
-                signupbtn.innerHTML = 'Create Account';
-                signupbtn.style.cursor = 'pointer';
-
                 if (response.HTMLModal) {
                     document.getElementById('authContainer').style.height = '100vh';
                     document.getElementById('signupForm').innerHTML = response.HTMLModal;

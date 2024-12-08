@@ -1,4 +1,4 @@
-<?php if (isset($_SESSION['customerId'])): ?>
+<?php if (isset($_SESSION['customerId']) && isset($_SESSION['customerToken'])): ?>
     <script type="text/javascript">
         window.location.href = "<?= $_ENV['BASEURL'] ?>";
     </script>

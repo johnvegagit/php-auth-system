@@ -20,7 +20,7 @@ class Signup
         "password",
         "role",
         "token",
-        "auth_code"
+        "verification_code"
     ];
 
     // Check if $email is registered.
@@ -58,10 +58,10 @@ class Signup
         return $result;
     }
 
-    public function user_verification_code_are_empty($email)
+    public function are_customer_verification_code_empty($email)
     {
         $pdo = $this->get_connection();
-        $query = "SELECT auth_code FROM $this->table WHERE email = :email";
+        $query = "SELECT verification_code FROM $this->table WHERE email = :email";
         $stmt = $pdo->prepare($query);
         $stmt->bindParam(':email', $email);
         $stmt->execute();
@@ -69,7 +69,7 @@ class Signup
         return $result;
     }
 
-    public function user_verification_account_are_banned($email)
+    public function are_customer_account_banned($email)
     {
         $pdo = $this->get_connection();
         $query = "SELECT status FROM $this->table WHERE email = :email";
@@ -80,7 +80,7 @@ class Signup
         return $result;
     }
 
-    public function get_user_data_from_db($email)
+    public function get_customer_data_from_db($email)
     {
         $pdo = $this->get_connection();
         $query = "SELECT * FROM $this->table WHERE email = :email";

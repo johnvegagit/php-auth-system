@@ -54,7 +54,7 @@ class LoginController
             return false;
         }
 
-        function is_user_email_wrong(string $email)
+        function are_customer_email_wrong(string $email)
         {
             $getBool = new customer_login;
             if (!$getBool->is_email_registered($email)) {
@@ -74,33 +74,33 @@ class LoginController
             return false;
         }
 
-        // Check if user are verify, check if code in db are empty.
-        function is_user_verify(string $email)
+        // Check if customer are verify, check if code in db are empty.
+        function are_customer_account_verify(string $email)
         {
-            $get_bol = new customer_login;
-            $torf = $get_bol->user_verification_code_are_empty($email);
-            if ($torf->auth_code) {
+            $getBool = new customer_login;
+            $torf = $getBool->are_customer_verification_code_empty($email);
+            if (!empty($torf->verification_code)) {
                 return true;
             }
             return false;
         }
 
-        // Check if user are verify, check if code in db are empty.
-        function is_user_banned(string $email)
+        // Check if customer are verify, check if code in db are empty.
+        function are_customer_banned(string $email)
         {
-            $get_bol = new customer_login;
-            $torf = $get_bol->user_verification_account_are_banned($email);
+            $getBool = new customer_login;
+            $torf = $getBool->are_customer_account_banned($email);
             if ($torf->status === 'Blocked') {
                 return true;
             }
             return false;
         }
 
-        // Get user data.
-        function get_user_data($email)
+        // Get customer data.
+        function get_customer_data($email)
         {
-            $user_data = new customer_login;
-            $data = $user_data->get_user_data_from_db($email);
+            $customer_data = new customer_login;
+            $data = $customer_data->get_customer_data_from_db($email);
             return $data;
         }
 
@@ -113,13 +113,13 @@ class LoginController
             $errors['email'] = '<span class="auth-input-msg-err"><i class="bi bi-exclamation-triangle-fill"></i> The email provided is not valid.</span>';
         } elseif (!validate_email_char($email)) {
             $errors['email'] = '<span class="auth-input-msg-err"><i class="bi bi-exclamation-triangle-fill"></i> The email contains invalid characters.</span>';
-        } elseif (is_user_email_wrong($email)) {
+        } elseif (are_customer_email_wrong($email)) {
             $errors['email'] = '<span class="auth-input-msg-err"><i class="bi bi-exclamation-triangle-fill"></i> The information entered is incorrect.</span>';
             $errors['pwd'] = '<span class="auth-input-msg-err"><i class="bi bi-exclamation-triangle-fill"></i> The information entered is incorrect.</span>';
-        } elseif (!is_user_email_wrong($email) && is_password_wrong($password, $email)) {
+        } elseif (!are_customer_email_wrong($email) && is_password_wrong($password, $email)) {
             $errors['email'] = '<span class="auth-input-msg-err"><i class="bi bi-exclamation-triangle-fill"></i> The information entered is incorrect.</span>';
             $errors['pwd'] = '<span class="auth-input-msg-err"><i class="bi bi-exclamation-triangle-fill"></i> The information entered is incorrect.</span>';
-        } elseif (is_user_verify($email)) {
+        } elseif (are_customer_account_verify($email)) {
 
             $modalAlert = '
             <div id="HTMLModal-email-send">
@@ -131,7 +131,7 @@ class LoginController
                 <span>We hope to see you soon!</span>
             </div>';
 
-        } elseif (is_user_banned($email)) {
+        } elseif (are_customer_banned($email)) {
             // Add your Support mobile number.
             $number = '00000000';
 
@@ -183,7 +183,7 @@ class LoginController
         if (empty($errors) && empty($modalAlert)) {
 
             // Get customer data and creat a session.
-            $getData = get_user_data($email);
+            $getData = get_customer_data($email);
 
             $newSessionId = session_create_id();
             $sessionId = $newSessionId . "_" . $getData->id;

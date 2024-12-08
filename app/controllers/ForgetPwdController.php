@@ -88,6 +88,7 @@ class ForgetPwdController
 
             $mail = new PHPMailer(true);
 
+            $mail->CharSet = 'UTF-8';
             // Server SMTP settings and email content.
             #$mail->SMTPDebug = SMTP::DEBUG_SERVER; // Enable verbose debug output.
             $mail->SMTPDebug = SMTP::DEBUG_OFF; // Disactivate verbose debug output.
@@ -100,12 +101,12 @@ class ForgetPwdController
             $mail->Port = 465; // TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`.
 
             // Recipients.
-            $mail->setFrom($_ENV['DATAMAIL']);
+            $mail->setFrom($_ENV['DATAMAIL'], 'your-website.com');
             $mail->addAddress($email);
 
             // Content.
             $mail->isHTML(true); // Set email format to HTML
-            $mail->Subject = 'no reply';
+            $mail->Subject = 'no reply - Reset your password';
             $mail->Body = 'Hello! To reset your password, please click the following link: <b><a href="' . $_ENV['BASEURL'] . 'resetpwd/?auth=' . $password_reset_code . '">Reset my password</a></b>. If you didn’t request this change, please ignore this message. Thank you for trusting us!';
 
             // Update customers aunt code.

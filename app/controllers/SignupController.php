@@ -154,7 +154,11 @@ class SignupController
 
         $role = 'client';
         $token = bin2hex(random_bytes(32)) . time();
-        $auth_code = md5((string) rand());
+        // Generate new auth code.
+        // Combine the user's email, current timestamp, and a random value to generate a unique string.
+        $unique_string = $email . time() . bin2hex(random_bytes(8));
+        // Hash the unique string using SHA-256 for added security.
+        $verification_code = hash('sha256', $unique_string);
 
         $data = [
             'name' => $name,
@@ -164,7 +168,7 @@ class SignupController
             'password' => $pwd,
             'role' => $role,
             'token' => $token,
-            'auth_code' => $auth_code
+            'verification_code' => $verification_code
         ];
 
         try {
@@ -179,6 +183,7 @@ class SignupController
 
             $mail = new PHPMailer(true);
 
+            $mail->CharSet = 'UTF-8';
             // Server SMTP settings and email content.
             #$mail->SMTPDebug = SMTP::DEBUG_SERVER; // Enable verbose debug output.
             $mail->SMTPDebug = SMTP::DEBUG_OFF; // Disactivate verbose debug output.
@@ -191,13 +196,13 @@ class SignupController
             $mail->Port = 465; // TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`.
 
             // Recipients.
-            $mail->setFrom($_ENV['DATAMAIL']);
+            $mail->setFrom($_ENV['DATAMAIL'], 'your-website.com');
             $mail->addAddress($email);
 
             // Content.
             $mail->isHTML(true); // Set email format to HTML
-            $mail->Subject = 'no reply';
-            $mail->Body = 'Hello! To activate your account, simply verify it using this link: <b><a href="' . $_ENV['BASEURL'] . 'login/?verification=' . $auth_code . '">Verify my account</a></b>. We hope you enjoy your experience with us!';
+            $mail->Subject = 'no reply - Activate your account';
+            $mail->Body = 'Hello! To activate your account, simply verify it using this link: <b><a href="' . $_ENV['BASEURL'] . 'login/?verification=' . $verification_code . '">Verify my account</a></b>. We hope you enjoy your experience with us!';
 
             // Insert customers data in database.
             $user = new customer_signup();
@@ -238,6 +243,7 @@ class SignupController
                 'modal_msg' => '<div id="--modal-error-msg" class="--modal-error-msg">
                                     <span><i class="bi bi-exclamation-triangle-fill"></i> Error</span>
                                     <p>We are experiencing some technical issues. Please try again later.</p>
+                                    ' . $e->getMessage() . '
                                     <button id="closeModalMsgBtn" class="--action-button" type="button" title="close modal">Close</button>
                                 </div>'
 
