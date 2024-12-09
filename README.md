@@ -22,7 +22,7 @@ This project offers the following features:
 
 Make sure you have the following tools installed before starting the project:
 
-- **PHP 8.2**
+- **PHP 8.2.12**
 - **Apache Server**
 - **Composer** (for PHPMailer installation)
 - **.htaccess** enabled on your Apache configuration
@@ -57,7 +57,7 @@ Composer will automatically download and manage the required packages.
 
 ---
 
-## Environment Configuration (.env file)
+## Environment Configuration (`.env` file)
 
 Create a .env file in the root directory and configure your environment variables as follows:
 
@@ -119,7 +119,7 @@ This project does not have any restrictions. You are free to fork, modify, and u
 
 ## 🛠️ Dependencies to Install (Recommended)
 
-   - **PHP: Latest version of PHP >= 8.3**
+   - **PHP: Latest version of PHP >= 8.2.12**
    - **Apache Web Server**
    - **PHPMailer: Handles email notifications for password recovery.**
    - **Composer (optional but highly recommended)**
