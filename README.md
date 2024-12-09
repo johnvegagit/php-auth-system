@@ -33,32 +33,35 @@ Make sure you have the following tools installed before starting the project:
 
 ### Clone the Repository
 
-Clone your project repository:
+Clone project repository:
 
 ```bash
 git clone https://github.com/johnvegagit/php-auth-system.git
 ```
 
-You will need the main project, PHPMailer, and vlucas for email and dependencies.
+## Install Dependencies
 
-##PHPMailer Installation
+Use Composer to install the required dependencies:
 
-```bash
-git clone https://github.com/PHPMailer/PHPMailer.git
-```
-##vlucas/parsedown Installation (Markdown Parser)
+## PHPMailer Installation
 
 ```bash
-git clone https://github.com/paulmillr/parse.git
+composer require phpmailer/phpmailer
 ```
-Make sure to place these dependencies in the appropriate paths as required.
+## vlucas Installation
+
+```bash
+composer require vlucas/phpdotenv
+```
+Composer will automatically download and manage the required packages.
 
 ---
 
-Environment Configuration (.env file)
+## Environment Configuration (.env file)
 
-Configure your environment variables for proper system operation:
+Create a .env file in the root directory and configure your environment variables as follows:
 
+```bash
 # Environment Configuration for Your Application
 
 BASEURL="http://localhost/public_html/php-auth-system/"
@@ -71,10 +74,11 @@ DBHOST="localhost"               # Database host
 DBNAME="dbname"                 # Database name
 DBUSER="root"                     # Database username
 DBPASS="yourpassword"          # Database password
+```
 
 ---
 
-⚛️ How to Run the Project
+## ⚛️ How to Run the Project
 
     1. Make sure Apache and PHP are installed and running.
     2. Place the project under your Apache root path (e.g., /opt/lampp/htdocs).
@@ -83,21 +87,21 @@ DBPASS="yourpassword"          # Database password
 
 ---
 
-📚 Project Components
+## 📚 Project Components
 Authentication Logic
 
     - All authentication and database connection operations have been built with PHP OOP principles.
     - Handles user registration/login/signup.
     - Securely encrypts passwords and integrates PHPMailer for email notifications.
 
-AJAX Communication
+## AJAX Communication
 
     - Seamlessly sends and fetches data from AJAX to PHP backend.
     - If there's an error, messages are returned in JSON format.
 
 ---
 
-🤝 Free to Use & Open Source
+## 🤝 Free to Use & Open Source
 
 This project is free to use, and you are free to modify, fork, and extend it as you wish.
 
@@ -107,18 +111,25 @@ This project is free to use, and you are free to modify, fork, and extend it as 
 
 ---
 
-📄 License
+## 📄 License
 
 This project does not have any restrictions. You are free to fork, modify, and use it commercially or personally without needing any licensing attribution. However, you should use it with your own caution and responsibility.
 
 ---
 
-🛠️ Dependencies to Install (Recommended)
+## 🛠️ Dependencies to Install (Recommended)
 
     - PHP: Latest version of PHP >= 7.4
     - Apache Web Server
     - PHPMailer: Handles email notifications for password recovery.
     - Composer (optional but highly recommended)
+
+To install them, simply run:
+
+```bash
+composer require phpmailer/phpmailer
+composer require vlucas/phpdotenv
+```
 
 ---
 
