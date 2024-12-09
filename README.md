@@ -22,7 +22,7 @@ This project offers the following features:
 
 Make sure you have the following tools installed before starting the project:
 
-- **PHP 7+**
+- **PHP 8.2**
 - **Apache Server**
 - **Composer** (for PHPMailer installation)
 - **.htaccess** enabled on your Apache configuration
@@ -80,24 +80,24 @@ DBPASS="yourpassword"          # Database password
 
 ## ⚛️ How to Run the Project
 
-    1. Make sure Apache and PHP are installed and running.
-    2. Place the project under your Apache root path (e.g., /opt/lampp/htdocs).
-    3. Configure your .htaccess properly to support SEO-friendly URLs.
-    4. Use AJAX requests to communicate asynchronously with backend controllers to register/login/signup/reset passwords.
+   - **Make sure Apache and PHP are installed and running.**
+   - **Place the project under your Apache root path (e.g., /opt/lampp/htdocs).**
+   - **Configure your .htaccess properly to support SEO-friendly URLs.**
+   - **Use AJAX requests to communicate asynchronously with backend controllers to register/login/signup/reset passwords.**
 
 ---
 
 ## 📚 Project Components
 Authentication Logic
 
-    - All authentication and database connection operations have been built with PHP OOP principles.
-    - Handles user registration/login/signup.
-    - Securely encrypts passwords and integrates PHPMailer for email notifications.
+   - **All authentication and database connection operations have been built with PHP OOP principles.**
+   - **Handles user registration/login/signup.**
+   - **Securely encrypts passwords and integrates PHPMailer for email notifications.**
 
 ## AJAX Communication
 
-    - Seamlessly sends and fetches data from AJAX to PHP backend.
-    - If there's an error, messages are returned in JSON format.
+   - **Seamlessly sends and fetches data from AJAX to PHP backend.**
+   - **If there's an error, messages are returned in JSON format.**
 
 ---
 
@@ -105,9 +105,9 @@ Authentication Logic
 
 This project is free to use, and you are free to modify, fork, and extend it as you wish.
 
-    - It can be deployed in production environments or personal projects.
-    - No commercial restrictions apply.
-    - Use it at your own risk, and customize it according to your specific needs.
+   - **It can be deployed in production environments or personal projects.**
+   - **No commercial restrictions apply.**
+   - **Use it at your own risk, and customize it according to your specific needs.**
 
 ---
 
@@ -119,10 +119,10 @@ This project does not have any restrictions. You are free to fork, modify, and u
 
 ## 🛠️ Dependencies to Install (Recommended)
 
-    - PHP: Latest version of PHP >= 7.4
-    - Apache Web Server
-    - PHPMailer: Handles email notifications for password recovery.
-    - Composer (optional but highly recommended)
+   - **PHP: Latest version of PHP >= 8.3**
+   - **Apache Web Server**
+   - **PHPMailer: Handles email notifications for password recovery.**
+   - **Composer (optional but highly recommended)**
 
 To install them, simply run:
 
