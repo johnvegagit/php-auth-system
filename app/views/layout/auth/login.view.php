@@ -10,22 +10,8 @@
 
             <div class="auth-header">
                 <div class="logo-cont"><img src="" alt=""></div>
-                <h2>Welcome back</h2>
+                <h2>Welcome</h2>
                 <span>Please entre your Email & Password.</span>
-            </div>
-
-            <div id="authWhithCont">
-                <button type="button">
-                    <img width="30" height="30" src="https://img.icons8.com/color/48/google-logo.png" alt="google-logo" />
-                    Login with Google</button>
-                <button type="button">
-                    <img width="30" height="30" src="https://img.icons8.com/color/48/microsoft.png" alt="microsoft" />
-                    Login with Microsoft</button>
-            </div>
-
-            <div id="ORLine">
-                <hr> or
-                <hr>
             </div>
 
             <!-- email -->
@@ -49,7 +35,6 @@
             <a class="share-linkto" href="<?= $_ENV['BASEURL'] ?>forgetpwd" target="_blank" rel="noopener noreferrer">Forget
                 password?</a>
 
-            <br><br>
             <button type="button" id="loginData" class="auth-button">Login</button>
 
             <div id="ORLine">

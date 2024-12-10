@@ -14,20 +14,6 @@
                 <span>Lorem ipsum dolor sit, consectetur elit.</span>
             </div>
 
-            <div id="authWhithCont">
-                <button type="button">
-                    <img width="30" height="30" src="https://img.icons8.com/color/48/google-logo.png" alt="google-logo" />
-                    Signup with Google</button>
-                <button type="button">
-                    <img width="30" height="30" src="https://img.icons8.com/color/48/microsoft.png" alt="microsoft" />
-                    Signup with Microsoft</button>
-            </div>
-
-            <div id="ORLine">
-                <hr> or
-                <hr>
-            </div>
-
             <!-- name surname -->
             <div class="form-input-names-cont">
                 <div class="form-input-cont">
@@ -46,7 +32,7 @@
             <!-- username -->
             <div class="form-input-cont">
                 <label for="username">username</label>
-                <input class="FORM-INPUT-username" required type="text" placeholder="Username" minlength="10"
+                <input class="FORM-INPUT-username" required type="text" placeholder="Username (optional)" minlength="10"
                     autocomplete="off">
                 <div id="inputMsg--username" class="input-msg-cont"></div>
             </div>

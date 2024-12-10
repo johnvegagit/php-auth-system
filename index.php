@@ -1,5 +1,9 @@
 <?php
-ini_set('display_errors', 1);
+/** Validate php version */
+$minPHPVersion = "8.2.12";
+if (phpversion() < $minPHPVersion) {
+    die("<pre>Your PHP Version must be {$minPHPVersion} or higher to run this app. Your current vertion is " . phpversion() . "</pre>");
+}
 
 /** Denied access app directories */
 define('ROOTPATH', __DIR__ . DIRECTORY_SEPARATOR);

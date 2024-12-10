@@ -61,6 +61,7 @@ label{
             width: 100%;
             justify-content: center;
             text-align: center;
+            margin-bottom: 20px;
 
             & .logo-cont{
                 width: 100%;
@@ -142,6 +143,7 @@ label{
             padding: 10px 8px;
             cursor: pointer;
             font-size: 14px;
+            margin-top: 10px;
         }
     }
 }
@@ -164,32 +166,12 @@ label{
     justify-content: center;
     align-items: center;
     gap: 5px;
+    margin: 10px 0;
 
     & hr{
         width: 100%;
         color: #eeeeee;
         opacity: .5;
-    }
-}
-
-#authWhithCont{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-
-    & button{
-        width: 100%;
-        border: none;
-        padding: 5px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 4px;
-        cursor: pointer;
-        gap: 10px;
     }
 }
 
